@@ -1,32 +1,36 @@
-tiktokMIXPLUGIN
-SOUND ALERT and command-action TikTok plugin for MixItUpApp // Sound alerts, commands, and TikTok actions connected to MixItUpApp
+# tiktokMIXPLUGIN
 
-HOW TO USE
-Download Everything in a ZIP: Start by downloading all the necessary files as a ZIP archive.
+**SOUND ALERT and command-action TikTok plugin for MixItUpApp** // Sonidos de alerta, comandos y acciones de TikTok conectados a MixItUpApp
 
-Modify the Code or Review: You can either modify the code to suit your needs or simply review it to ensure it meets your requirements.
+## CÓMO USAR
 
-Run INDEX.HTML: Execute the INDEX.HTML file to run the plugin.
+1. **Descargar Todo en un Archivo ZIP**: Comienza por descargar todos los archivos necesarios en un archivo ZIP.
 
-Enter @USERNAME and Connect: Input your @USERNAME and establish the connection.
+2. **Modificar el Código o Revisarlo**: Puedes modificar el código según tus necesidades o simplemente revisarlo para asegurarte de que cumple con tus requisitos.
 
-Download MixItUpApp: Download MixItUpApp from its official website.
+3. **Ejecutar INDEX.HTML**: Ejecuta el archivo INDEX.HTML para iniciar el plugin.
 
-Connect MixItUpApp to Your Stream and Configure: Link MixItUpApp to your stream and configure it as needed.
+4. **Ingresar @USERNAME y Conectar**: Ingresa tu @USERNAME y establece la conexión.
 
-Check Functionality and Enjoy: Verify if everything is working correctly and enjoy the plugin.
+5. **Descargar MixItUpApp**: Descarga MixItUpApp desde su sitio web oficial.
 
-ABOUT
-This plugin is a web page that sends messages to the chat of YouTube or Twitch using MixItUpApp with a localhost API.
+6. **Conectar MixItUpApp a tu Transmisión y Configurarlo**: Vincula MixItUpApp a tu transmisión y configúralo según sea necesario.
 
-Received messages are used as keywords for commands and other Twitch tools.
+7. **Verificar la Funcionalidad y Disfrutar**: Verifica si todo funciona correctamente y disfruta del plugin.
 
-Example: If a message like "donation 1 Rose" is sent, it will appear as "Rose" in the chat. You can configure a sound to play whenever "Rose" is mentioned or heard.
+## ACERCA DE
 
-Additionally, with TwitchSpawn, you can create commands, messages, and various interactive events for Minecraft.
+Este plugin es una página web que envía mensajes al chat de YouTube o Twitch utilizando MixItUpApp con una API de localhost.
 
-SongRequest allows you to queue up music requests, which can be played using Nightbot or Streamlabs. Check out tutorials for perfect functionality.
+Los mensajes recibidos se utilizan como palabras clave para comandos y otras herramientas de Twitch.
 
-Botón para cambiar el idioma a español Button to switch language to English
+Ejemplo: Si se envía un mensaje como "donación 1 Rose", aparecerá como "Rose" en el chat. Puedes configurar un sonido para reproducirse cada vez que se mencione o escuche "Rose".
 
-Note: Please add the functionality to switch languages as needed in your actual readme file.
+Además, con TwitchSpawn, puedes crear comandos, mensajes y diversos eventos interactivos para Minecraft.
+
+SongRequest te permite poner en cola solicitudes de música, que se pueden reproducir utilizando Nightbot o Streamlabs. Consulta tutoriales para un funcionamiento perfecto.
+
+---
+
+[Botón para Cambiar el Idioma a Inglés](#)  [Button to Switch Language to Spanish](#)
+
