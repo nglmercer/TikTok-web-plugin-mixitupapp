@@ -1,12 +1,19 @@
 body {
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     min-width: 800px;
+    background-color: #f5f5f5;
+    color: #333333;
+}
+
+.dark-theme body {
+    background-color: #333333;
+    color: #f5f5f5;
 }
 
 h1 {
-    font-size: 1.8em;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 a {
@@ -18,8 +25,9 @@ a {
 }
 
 .subTitle {
-    font-size: 0.8em;
+    font-size: 1em;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 .usernamelink {
@@ -27,11 +35,7 @@ a {
     text-decoration: none;
 }
 
-#roomUserText {
-    width: 100%;
-    text-align: right;
-}
-
+#roomUserText,
 #roomStats {
     width: 100%;
     text-align: right;
@@ -41,8 +45,11 @@ a {
     margin-right: 20px;
 }
 
-.splitchattable, .splitstatetable {
+.splitchattable,
+.splitstatetable {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .splitstatetable td {
@@ -53,9 +60,10 @@ a {
     text-align: center;
 }
 
-.chatcontainer, .giftcontainer, .eventcontainer {
-    overflow-y: scroll;
-    height: calc(100vh - 240px);
+.chatcontainer,
+.giftcontainer,
+.eventcontainer {
+    overflow-y: auto;
     word-wrap: break-word;
 }
 
@@ -66,19 +74,46 @@ a {
 .chatcontainer {
     min-width: 400px;
     max-width: calc(100vw - 430px);
+    max-height: calc(100vh - 240px);
 }
 
 .giftcontainer {
     min-width: 400px;
+    max-height: calc(100vh - 240px);
 }
 
 .miniprofilepicture {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
 }
 
 .gifticon {
     height: 50px;
     width: 50px;
     margin-right: 10px;
+}
+
+body.theme-dark {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body.theme-light {
+    background-color: #f5f5f5;
+    color: #333333;
+}
+
+.themeButtons button {
+    width: 100px;
+    height: 25px;
+    background-color: #f1f1f1;
+    color: #020202;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(114, 114, 114, 0);
+    cursor: pointer;
+}
+
+.themeButtons button:hover {
+    background-color: #1356a3;
 }

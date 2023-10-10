@@ -1,22 +1,28 @@
 require('dotenv').config();
-
+const sqlite3 = require('sqlite3').verbose();
 const express = require('express');
 const { createServer } = require('http');
-const { Server } = require('socket.io');
+const { Server } = require("socket.io");
 const { TikTokConnectionWrapper, getGlobalConnectionCount } = require('./connectionWrapper');
 const { clientBlocked } = require('./limiter');
+var cors = require("cors");
 
 const app = express();
-const httpServer = createServer(app);
+const httpServer = createServer(app); //use same app server instance to create httpServer for socket
 
-// Enable cross origin resource sharing
+// Habilitar el intercambio de recursos de origen cruzado
 const io = new Server(httpServer, {
-    cors: {
-        origin: '*'
-    }
+  cors: {
+    origin: "*",
+  },
 });
 
-
+app.use(
+    cors({
+      origin: "*",
+    })
+  );
+  
 io.on('connection', (socket) => {
     let tiktokConnectionWrapper;
 
@@ -94,4 +100,4 @@ app.use(express.static('public'));
 // Start http listener
 const port = process.env.PORT || 8081;
 httpServer.listen(port);
-console.info(`Server running! Please visit http://localhost:${port}`);
+console.info(`¡Servidor en ejecución! Visite http://localhost:${port}`);

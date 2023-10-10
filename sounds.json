@@ -1,0 +1,69 @@
+{
+  "sounds": [
+    {
+      "name": "Fart",
+      "color": "#339900",
+      "mp3": "sounds/fart.mp3"
+    },
+    {
+      "name": "Rose",
+      "color": "#694729",
+      "mp3": "sounds/kururin.mp3"
+    },
+    {
+      "name": "Cat",
+      "color": "#70492f",
+      "mp3": "sounds/guranya.mp3"
+    },
+    {
+      "name": "BRUH!",
+      "color": "#f2c305",
+      "mp3": "sounds/bruh.mp3"
+    },
+    {
+      "name": "Windows XP Error",
+      "color": "#05b0fa",
+      "mp3": "sounds/WinError.mp3"
+    },
+    {
+      "name": "Nope",
+      "colr": "#ff0000",
+      "mp3": "sounds/nope.mp3"
+    },
+    {
+      "name": "Bonk",
+      "color": "#78ab6d",
+      "mp3": "sounds/bonk.mp3"
+    },
+    {
+      "name": "Yeet",
+      "color": "#ad1ac7",
+      "mp3": "sounds/yeet.mp3"
+    },
+    {
+      "name": "Hello there!",
+      "color": "#878686",
+      "mp3": "sounds/hello-there.mp3"
+    },
+    {
+      "name": "Roblox Death!",
+      "color": "#c93c3c",
+      "mp3": "sounds/oof.mp3"
+    },
+    {
+      "name": "Amongus Earrape loud",
+      "color": "#fc0303",
+      "mp3": "sounds/amongus.mp3"
+    },
+    {
+      "name": "Among us Reported Body",
+      "color": "#fc0303",
+      "mp3": "sounds/reportedbody.mp3"
+    },
+    {
+      "name": "DOWN IN OHIO",
+      "color": "#000000",
+      "mp3": "sounds/downinohio.mp3"
+    }
+  ]
+}
