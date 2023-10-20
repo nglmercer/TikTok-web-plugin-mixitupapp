@@ -82,6 +82,17 @@ a {
     max-height: calc(100vh - 240px);
 }
 
+@media (aspect-ratio: 1/1), (aspect-ratio: 9/16), (aspect-ratio: 16/9) {
+    .splitchattable {
+        flex-direction: column;
+    }
+    .chatcontainer,
+    .giftcontainer {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
 .miniprofilepicture {
     height: 30px;
     width: 30px;

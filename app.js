@@ -25,37 +25,38 @@ $(document).ready(() => {
 })
 
 function connect() {
-    let uniqueId = window.settings.username || $('#uniqueIdInput').val();
-    if (uniqueId !== '') {
+  let uniqueId = window.settings.username || $('#uniqueIdInput').val();
+  if (uniqueId !== '') {
 
-        $('#stateText').text('Connecting...');
+      $('#stateText').text('Conectando...');
 
-        connection.connect(uniqueId, {
-            enableExtendedGiftInfo: true
-        }).then(state => {
-            $('#stateText').text(`Connected to roomId ${state.roomId}`);
+      connection.connect(uniqueId, {
+          enableExtendedGiftInfo: true
+      }).then(state => {
+          $('#stateText').text(`Conectado a la sala ${state.roomId}`);
 
-            // reset stats
-            viewerCount = 0;
-            likeCount = 0;
-            diamondsCount = 0;
-            updateRoomStats();
+          // resetear estadísticas
+          viewerCount = 0;
+          likeCount = 0;
+          diamondsCount = 0;
+          updateRoomStats();
 
-        }).catch(errorMessage => {
-            $('#stateText').text(errorMessage);
+      }).catch(errorMessage => {
+          $('#stateText').text(errorMessage);
 
-            // schedule next try if obs username set
-            if (window.settings.username) {
-                setTimeout(() => {
-                    connect(window.settings.username);
-                }, 30000);
-            }
-        })
+          // programar próximo intento si se establece el nombre de usuario obs
+          if (window.settings.username) {
+              setTimeout(() => {
+                  connect(window.settings.username);
+              }, 30000);
+          }
+      })
 
-    } else {
-        alert('no username entered');
-    }
+  } else {
+      alert('no se ingresó nombre de usuario');
+  }
 }
+
 
 // Prevent Cross site scripting (XSS)
 function sanitize(text) {
@@ -63,7 +64,7 @@ function sanitize(text) {
 }
 
 function updateRoomStats() {
-    $('#roomStats').html(`Viewers: <b>${viewerCount.toLocaleString()}</b> Likes: <b>${likeCount.toLocaleString()}</b> Earned Diamonds: <b>${diamondsCount.toLocaleString()}</b>`)
+    $('#roomStats').html(`Espectadores: <b>${viewerCount.toLocaleString()}</b> Likes: <b>${likeCount.toLocaleString()}</b> Diamantes: <b>${diamondsCount.toLocaleString()}</b>`)
 }
 
 function generateUsernameLink(data) {
@@ -131,37 +132,37 @@ function addChatItem(color, data, text, summarize) {
 }
 // Resto del código...
 /**
- * Add a new gift to the gift container
+ * Agregar un nuevo regalo al contenedor de regalos
  */
 function addGiftItem(data) {
-    let container = location.href.includes('obs.html') ? $('.eventcontainer') : $('.giftcontainer');
-  
-    if (container.find('div').length > 200) {
+  let container = location.href.includes('obs.html') ? $('.eventcontainer') : $('.giftcontainer');
+
+  if (container.find('div').length > 200) {
       container.find('div').slice(0, 100).remove();
-    }
-  
-    let streakId = data.userId.toString() + '_' + data.giftId;
-  
-    let html = `
+  }
+
+  let streakId = data.userId.toString() + '_' + data.giftId;
+
+  let html = `
       <div data-streakid=${isPendingStreak(data) ? streakId : ''}>
-        <img class="miniprofilepicture" src="${data.profilePictureUrl}">
-        <span>
-          <b>${generateUsernameLink(data)}:</b> <span>${data.describe}</span><br>
-          <div>
-            <table>
-              <tr>
-                <td><img class="gifticon" src="${data.giftPictureUrl}"></td>
-                <td>
-                  <span>Name: <b>${data.giftName}</b> (ID:${data.giftId})<span><br>
-                  <span>Repeat: <b style="${isPendingStreak(data) ? 'color:red' : ''}">x${data.repeatCount.toLocaleString()}</b><span><br>
-                  <span>Cost: <b>${(data.diamondCount * data.repeatCount).toLocaleString()} Diamonds</b><span>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </span>
+          <img class="miniprofilepicture" src="${data.profilePictureUrl}">
+          <span>
+              <b>${generateUsernameLink(data)}:</b> <span>${data.describe}</span><br>
+              <div>
+                  <table>
+                      <tr>
+                          <td><img class="gifticon" src="${data.giftPictureUrl}"></td>
+                          <td>
+                              <span>Nombre: <b>${data.giftName}</b> (ID:${data.giftId})<span><br>
+                              <span>Repetir: <b style="${isPendingStreak(data) ? 'color:red' : ''}">x${data.repeatCount.toLocaleString()}</b><span><br>
+                              <span>Costo: <b>${(data.diamondCount * data.repeatCount).toLocaleString()} Diamantes</b><span>
+                          </td>
+                      </tr>
+                  </tabl>
+              </div>
+          </span>
       </div>
-    `;
+  `;
   
     let existingStreakItem = container.find(`[data-streakid='${streakId}']`);
   
@@ -178,7 +179,23 @@ function addGiftItem(data) {
       scrollTop: container[0].scrollHeight
     }, 800);
   }
-  
+
+$(window).on('resize', function() {
+    let aspectRatio = $(window).width() / $(window).height();
+    if (aspectRatio <= 1) {
+        $('.splitchattable').css('flex-direction', 'column');
+        $('.chatcontainer, .giftcontainer').css('float', 'left');
+        $('.chatcontainer, .giftcontainer').css('width', '100%');
+        $('#roomStats').css('text-align', 'left');
+    } else {
+        $('.splitchattable').css('flex-direction', 'row');
+        $('.chatcontainer, .giftcontainer').css('float', 'none');
+        $('.chatcontainer, .giftcontainer').css('width', 'auto');
+        $('#roomStats').css('text-align', 'center');
+    }
+}).resize();
+
+
 // viewer stats
 connection.on('roomUser', (msg) => {
     if (typeof msg.viewerCount === 'number') {
@@ -215,7 +232,7 @@ connection.on('member', (msg) => {
 
     setTimeout(() => {
         joinMsgDelay -= addDelay;
-        addChatItem('#21b2c2', msg, 'join', true);
+        addChatItem('#21b2c2', msg, 'welcome', true);
     }, joinMsgDelay);
 })
 
@@ -248,7 +265,7 @@ connection.on('social', (data) => {
 })
 
 connection.on('streamEnd', () => {
-    $('#stateText').text('Stream ended.');
+    $('#stateText').text('Transmisión terminada.');
 
     // schedule next try if obs username set
     if (window.settings.username) {
@@ -261,7 +278,7 @@ let mensajes = [];
 let lastComment = '';
 let lastCommentTime = 0;
 const filterTime = 5000; // 5 segundos en milisegundos
-const palabrasSpam = ['join', 'joined', 'shared', 'the lived', 'gemidos', 'gemi2', 'remix'];
+const palabrasSpam = ['join', 'joined', 'shared', 'the lived', 'gemidos', 'gemi2', 'remix', 'itler', 'nulk studios', 'welcome'];
 
 async function playSound(soundName) {
   const response = await fetch(`./sounds/${soundName}.mp3`);

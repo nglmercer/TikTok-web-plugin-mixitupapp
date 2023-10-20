@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TikTok WEBLIVE</title>
+    <title>TikTok LIVE</title>
 
     <meta name="description" content="A chat reader for TikTok LIVE utilizing TikTok-Live-Connector and Socket.IO to forward the data to the client. This demo project uses the unofficial TikTok API to retrieve chat comments, gifts and other events from TikTok LIVE.">
     <meta name="keywords" content="TikTok,Live,Livestream,Chat,Reader,Scraper,Tracker,tiktok.com,broadcast,api,library,node,node.js,javascript">
@@ -22,13 +22,13 @@
 <body>
     <div class="inputFields">
         <p>Ingresa el <b>@nombredeusuario</b>:</p>
-        <input type="text" id="uniqueIdInput" value="@melserngl" aria-label="Ingresa tu nombre de usuario">
-        <input type="button" id="connectButton" value="Conectar" aria-label="Conectar">
+        <input type="text" id="uniqueIdInput" value="@melserngl">
+        <input type="button" id="connectButton" value="Conectar">
     </div>
 
     <div class="themeButtons">
-        <button onclick="changeTheme('theme-light')" aria-label="Tema Claro">Tema Claro</button>
-        <button onclick="changeTheme('theme-dark')" aria-label="Tema Oscuro">Tema Oscuro</button>
+        <button onclick="changeTheme('theme-light')">Tema Claro</button>
+        <button onclick="changeTheme('theme-dark')">Tema Oscuro</button>
     </div>
 
     <table class="splitstatetable">
@@ -42,20 +42,15 @@
         </tr>
     </table>
 
-    <table class="splitchattable">
-        <tr>
-            <td>
-                <div class="chatcontainer">
-                    <h3 class="containerheader">Chats</h3>
-                </div>
-            </td>
-            <td>
-                <div class="giftcontainer">
-                    <h3 class="containerheader">Gifts</h3>
-                </div>
-            </td>
-        </tr>
-    </table>
+    <div class="splitchattable">
+        <div class="chatcontainer">
+            <h3 class="containerheader">Chats</h3>
+        </div>
+        <div class="giftcontainer">
+            <h3 class="containerheader">Gifts</h3>
+        </div>
+    </div>
+
     <script>
         function changeTheme(theme) {
             document.body.className = theme;
