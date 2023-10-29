@@ -32,5 +32,5 @@ SongRequest te permite poner en cola solicitudes de música, que se pueden repro
 
 ---
 
-[Botón para Cambiar el Idioma a Inglés](#)  [Button to Switch Language to Spanish](#)
+[![English](https://img.shields.io/badge/English--blue.svg)](README_EN.md)  [![Español](https://img.shields.io/badge/Español--red.svg)](README.md)
 
